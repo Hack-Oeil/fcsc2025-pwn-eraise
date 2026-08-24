@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <!--Page Title-->
+    <title>Hack-Oeil - Les CTFs de Cyrhades</title>
+    <!--Meta Keywords and Description-->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" title="Favicon" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script src="./assets/js/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Kiểm tra xem cửa sổ có nằm trong iframe không
+            if (window.self !== window.top) {
+                document.querySelectorAll('a').forEach((link) => {
+                    link.addEventListener('click', (event) => {
+                        const a = event.target.closest('a[href^="http"]');
+                        if (a) {
+                            event.preventDefault();
+                            window.parent.postMessage({
+                                type: "open-external",
+                                url: a.href
+                            }, "*");
+                        }
+                    });
+                });
+            }
+            // Kích hoạt làm nổi bật cú pháp :
+            if (window.hljs) {
+                hljs.highlightAll();
+            } else {
+                console.error("Highlight.js chưa được tải!");
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <!--Main Content Area-->
+        <main id="content">
+            <!--Ctf-->
+            <section class="ctf scrollto">
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>Thử thách #551</h3>
+                            <h2 class="section-title">eraise</h2>
+                            <p>
+Tùy thuộc vào bạn để giành được một mức tăng lương!
+<br /><br />
+Thử thách này là một dịch vụ từ một CTF giả định ở chế độ Attack/Defense! Đội của bạn đã triển khai công cụ <a href="https://github.com/FCSC-FR/shovel">Shovel</a> giúp bạn có cái nhìn ở cấp độ mạng về lưu lượng truy cập đến và đi từ máy ảo chơi game của bạn.
+<br /><br />
+Đối với dịch vụ này, đội của bạn đã bị RCE ngay tại tick 0… Thật đáng tiếc! Bạn cần tìm hiểu cách khai thác từ các gói mạng và thực hiện lại nó đối với đội đối thủ.
+<br /><br />
+Để phù hợp với FCSC, chỉ có một flagID duy nhất được cung cấp: <code>KUHddCSYqwYFWowMzSxzdcHjCm3ayDFs</code>.
+<br /><br />
+Flag cần tìm có định dạng <code>FCSC_<hex_string></code>.
+<br /><br />
+Chúc may mắn!
+<br /><br />
+- Shovel : <a href="http://localhost:8000">http://localhost:8000</a>
+- Dịch vụ cần tấn công : <code>nc localhost 4000</code>
+                            </p>
+                            <h4>(Các) tệp cần nghiên cứu:</h4>
+                            <ul>
+                                <li><a href="../files/eraise">eraise</a></li>
+                                <li><a href="../files/ld-2.40.so">ld-2.40.so</a></li>
+                                <li><a href="../files/libc-2.40.so">libc-2.40.so</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>FCSC 2025</h3>
+                            <h2 class="section-title">Hackropole</h2>
+                            <p class="section-subtitle">
+                                Liên kết chính thức :
+                                <a target="_blank" href="https://hackropole.fr/fr/challenges/pwn/fcsc2025-pwn-eraise/">https://hackropole.fr/fr/challenges/pwn/fcsc2025-pwn-eraise/</a>
+                                <br />
+                                Tác giả: Cryptanalyse
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>Học tập</h3>
+                            <h2 class="section-title">Tài liệu và Video</h2>
+                            <p class="section-subtitle">
+                                Hiện tại chưa có tài liệu nào
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>Trợ giúp</h3>
+                            <h2 class="section-title">Lời khuyên và gợi ý</h2>
+                            <p class="section-subtitle">
+                                <a target="_blank"
+                                    href="https://discord.com/channels/1175764392307077120/1175764601716092948">Chủ đề
+                                    trên Discord</a>
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </section>
+            <!--End of Ctf-->
+        </main>
+        <!--End Main Content Area-->
+
+        <a id="scrollUp" href="#wrapper" style="position: fixed; z-index: 1000;"
+            aria-label="Cuộn lên đầu trang" title="Cuộn lên đầu trang"></a>
+    </div>
+</body>
+
+</html>

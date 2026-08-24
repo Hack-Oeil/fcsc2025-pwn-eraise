@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!--Page Title-->
+    <title>Hack-Oeil - Les CTFs de Cyrhades</title>
+    <!--Meta Keywords and Description-->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" title="Favicon" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script src="./assets/js/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Check if window is in an iframe
+            if (window.self !== window.top) {
+                document.querySelectorAll('a').forEach((link) => {
+                    link.addEventListener('click', (event) => {
+                        const a = event.target.closest('a[href^="http"]');
+                        if (a) {
+                            event.preventDefault();
+                            window.parent.postMessage({
+                                type: "open-external",
+                                url: a.href
+                            }, "*");
+                        }
+                    });
+                });
+            }
+            // Enable syntax highlighting
+            if (window.hljs) {
+                hljs.highlightAll();
+            } else {
+                console.error("Highlight.js not loaded!");
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <!--Main Content Area-->
+        <main id="content">
+            <!--Ctf-->
+            <section class="ctf scrollto">
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>Challenge #551</h3>
+                            <h2 class="section-title">eraise</h2>
+                            <p>
+It's up to you to get a raise!
+<br /><br />
+This challenge is a service from a fictional CTF in Attack/Defense mode! Your team has set up the <a href="https://github.com/FCSC-FR/shovel">Shovel</a> tool, which provides network-level visibility into incoming and outgoing traffic on your game VM.
+<br /><br />
+For this service, your team got RCE'd at tick 0… Quite a bummer! It's up to you to understand the exploit from network frames and replay it against an opposing team.
+<br /><br />
+To adapt to FCSC, only a single flagID is provided: <code>KUHddCSYqwYFWowMzSxzdcHjCm3ayDFs</code>.
+<br /><br />
+The flag to find is in the format <code>FCSC_<hex_string></code>.
+<br /><br />
+Good luck!
+<br /><br />
+- Shovel: <a href="http://localhost:8000">http://localhost:8000</a>
+- Target service: <code>nc localhost 4000</code>
+                            </p>
+                            <h4>File(s) to study:</h4>
+                            <ul>
+                                <li><a href="../files/eraise">eraise</a></li>
+                                <li><a href="../files/ld-2.40.so">ld-2.40.so</a></li>
+                                <li><a href="../files/libc-2.40.so">libc-2.40.so</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>FCSC 2025</h3>
+                            <h2 class="section-title">Hackropole</h2>
+                            <p class="section-subtitle">
+                                Official link:
+                                <a target="_blank" href="https://hackropole.fr/fr/challenges/pwn/fcsc2025-pwn-eraise/">https://hackropole.fr/fr/challenges/pwn/fcsc2025-pwn-eraise/</a>
+                                <br />
+                                Author: Cryptanalyse
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>Learning</h3>
+                            <h2 class="section-title">Documentation and Videos</h2>
+                            <p class="section-subtitle">
+                                No documentation available at the moment
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>Help</h3>
+                            <h2 class="section-title">Tips and Hints</h2>
+                            <p class="section-subtitle">
+                                <a target="_blank"
+                                    href="https://discord.com/channels/1175764392307077120/1175764601716092948">Discord
+                                    Thread</a>
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </section>
+            <!--End of Ctf-->
+        </main>
+        <!--End Main Content Area-->
+
+        <a id="scrollUp" href="#wrapper" style="position: fixed; z-index: 1000;"
+            aria-label="Scroll to top" title="Scroll to top"></a>
+    </div>
+</body>
+
+</html>

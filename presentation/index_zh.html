@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <!--Page Title-->
+    <title>Hack-Oeil - Les CTFs de Cyrhades</title>
+    <!--Meta Keywords and Description-->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" title="Favicon" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script src="./assets/js/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 检查窗口是否在 iframe 中
+            if (window.self !== window.top) {
+                document.querySelectorAll('a').forEach((link) => {
+                    link.addEventListener('click', (event) => {
+                        const a = event.target.closest('a[href^="http"]');
+                        if (a) {
+                            event.preventDefault();
+                            window.parent.postMessage({
+                                type: "open-external",
+                                url: a.href
+                            }, "*");
+                        }
+                    });
+                });
+            }
+            // 启用代码语法高亮 :
+            if (window.hljs) {
+                hljs.highlightAll();
+            } else {
+                console.error("Highlight.js 未加载！");
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <!--Main Content Area-->
+        <main id="content">
+            <!--Ctf-->
+            <section class="ctf scrollto">
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>挑战 #551</h3>
+                            <h2 class="section-title">eraise</h2>
+                            <p>
+该由你来争取加薪了！
+<br /><br />
+本挑战是一个攻防模式（Attack/Defense）模拟CTF中的服务！你的队伍部署了 <a href="https://github.com/FCSC-FR/shovel">Shovel</a> 工具，让你可以在网络层面上监控进出比赛虚拟机的流量。
+<br /><br />
+在此服务中，你的队伍在第 0 个 tick 就遭遇了远程代码执行（RCE）… 真是不走运！现在需要你通过网络数据包分析并理解该利用方式（exploit），并将其重放到对手队伍中。
+<br /><br />
+为了适配 FCSC，仅提供一个唯一的 flagID：<code>KUHddCSYqwYFWowMzSxzdcHjCm3ayDFs</code>。
+<br /><br />
+需要找到的 Flag 格式为 <code>FCSC_<hex_string></code>。
+<br /><br />
+祝你好运！
+<br /><br />
+- Shovel : <a href="http://localhost:8000">http://localhost:8000</a>
+- 攻击目标服务 : <code>nc localhost 4000</code>
+                            </p>
+                            <h4>待分析文件:</h4>
+                            <ul>
+                                <li><a href="../files/eraise">eraise</a></li>
+                                <li><a href="../files/ld-2.40.so">ld-2.40.so</a></li>
+                                <li><a href="../files/libc-2.40.so">libc-2.40.so</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>FCSC 2025</h3>
+                            <h2 class="section-title">Hackropole</h2>
+                            <p class="section-subtitle">
+                                官方链接 :
+                                <a target="_blank" href="https://hackropole.fr/fr/challenges/pwn/fcsc2025-pwn-eraise/">https://hackropole.fr/fr/challenges/pwn/fcsc2025-pwn-eraise/</a>
+                                <br />
+                                作者: Cryptanalyse
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>学习</h3>
+                            <h2 class="section-title">文档与视频</h2>
+                            <p class="section-subtitle">
+                                暂无文档
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>帮助</h3>
+                            <h2 class="section-title">建议与提示</h2>
+                            <p class="section-subtitle">
+                                <a target="_blank"
+                                    href="https://discord.com/channels/1175764392307077120/1175764601716092948">Discord
+                                    讨论帖</a>
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </section>
+            <!--End of Ctf-->
+        </main>
+        <!--End Main Content Area-->
+
+        <a id="scrollUp" href="#wrapper" style="position: fixed; z-index: 1000;"
+            aria-label="返回页面顶部" title="返回顶部"></a>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <!--Page Title-->
+    <title>Hack-Oeil - Les CTFs de Cyrhades</title>
+    <!--Meta Keywords and Description-->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" title="Favicon" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script src="./assets/js/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // iframe 내부에 있는지 확인
+            if (window.self !== window.top) {
+                document.querySelectorAll('a').forEach((link) => {
+                    link.addEventListener('click', (event) => {
+                        const a = event.target.closest('a[href^="http"]');
+                        if (a) {
+                            event.preventDefault();
+                            window.parent.postMessage({
+                                type: "open-external",
+                                url: a.href
+                            }, "*");
+                        }
+                    });
+                });
+            }
+            // 구문 강조 활성화 :
+            if (window.hljs) {
+                hljs.highlightAll();
+            } else {
+                console.error("Highlight.js 로드되지 않음!");
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <!--Main Content Area-->
+        <main id="content">
+            <!--Ctf-->
+            <section class="ctf scrollto">
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>챌린지 #551</h3>
+                            <h2 class="section-title">eraise</h2>
+                            <p>
+연봉 인상을 쟁취하는 것은 여러분의 몫입니다!
+<br /><br />
+이 문제는 Attack/Defense 모드의 가상 CTF 서비스입니다! 여러분의 팀은 게임 VM의 인바운드 및 아웃바운드 트래픽을 네트워크 수준에서 파악할 수 있는 <a href="https://github.com/FCSC-FR/shovel">Shovel</a> 툴을 구축했습니다.
+<br /><br />
+이 서비스에서 여러분의 팀은 틱 0(tick 0)에서 RCE를 당했습니다… 정말 아쉬운 상황이네요! 네트워크 패킷에서 익스플로잇을 분석하고 상대 팀을 상대로 다시 실행(replay)해 보세요.
+<br /><br />
+FCSC 형식에 맞추기 위해 단 하나의 flagID만 제공됩니다: <code>KUHddCSYqwYFWowMzSxzdcHjCm3ayDFs</code>.
+<br /><br />
+찾아야 할 플래그 형식은 <code>FCSC_<hex_string></code>입니다.
+<br /><br />
+행운을 빕니다!
+<br /><br />
+- Shovel : <a href="http://localhost:8000">http://localhost:8000</a>
+- 공격 대상 서비스 : <code>nc localhost 4000</code>
+                            </p>
+                            <h4>분석할 파일:</h4>
+                            <ul>
+                                <li><a href="../files/eraise">eraise</a></li>
+                                <li><a href="../files/ld-2.40.so">ld-2.40.so</a></li>
+                                <li><a href="../files/libc-2.40.so">libc-2.40.so</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>FCSC 2025</h3>
+                            <h2 class="section-title">Hackropole</h2>
+                            <p class="section-subtitle">
+                                공식 링크 :
+                                <a target="_blank" href="https://hackropole.fr/fr/challenges/pwn/fcsc2025-pwn-eraise/">https://hackropole.fr/fr/challenges/pwn/fcsc2025-pwn-eraise/</a>
+                                <br />
+                                작성자: Cryptanalyse
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>학습</h3>
+                            <h2 class="section-title">문서 및 비디오</h2>
+                            <p class="section-subtitle">
+                                현재 문서가 없습니다
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>도움말</h3>
+                            <h2 class="section-title">팁 및 힌트</h2>
+                            <p class="section-subtitle">
+                                <a target="_blank"
+                                    href="https://discord.com/channels/1175764392307077120/1175764601716092948">Discord
+                                    스레드</a>
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </section>
+            <!--End of Ctf-->
+        </main>
+        <!--End Main Content Area-->
+
+        <a id="scrollUp" href="#wrapper" style="position: fixed; z-index: 1000;"
+            aria-label="페이지 맨 위로 이동" title="사이트 맨 위로 이동"></a>
+    </div>
+</body>
+
+</html>

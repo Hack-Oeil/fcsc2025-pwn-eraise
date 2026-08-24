@@ -1,0 +1,24 @@
+services:
+  ssh-551.cyrhades.fr:
+    container_name: ssh-551
+    build:
+      context: ./.docker/ssh
+      args:
+        LANGUAGE: ${LANGUAGE:-fr}
+    labels:
+      ho.ctf.cyrhades: "challenge"
+      ho.ctf.cyrhades.webssh: "1"
+    environment:
+      SSH_HOSTNAME: "ssh-551.cyrhades.fr"
+      SSH_PORT: 22
+      SSH_USERNAME: "cyrhades"
+      SSH_PASSWORD: "secret"
+    restart: unless-stopped
+  eraise.cyrhades.fr:
+    image: anssi/fcsc2025-pwn-eraise:latest
+    ports:
+      - ${PORT}:8000
+    labels:
+      ho.ctf.cyrhades: "challenge"
+  shovel-webapp.cyrhades.fr:
+    image: anssi/fcsc2025-pwn-eraise-shovel:latest
