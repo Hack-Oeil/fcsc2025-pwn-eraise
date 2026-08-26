@@ -15,10 +15,12 @@ services:
       SSH_PASSWORD: "secret"
     restart: unless-stopped
   eraise.cyrhades.fr:
+    container_name: eraise
     image: anssi/fcsc2025-pwn-eraise:latest
-    ports:
-      - ${PORT}:8000
+  shovel-webapp.cyrhades.fr:
+    container_name: shovel-webapp
     labels:
       ho.ctf.cyrhades: "challenge"
-  shovel-webapp.cyrhades.fr:
     image: anssi/fcsc2025-pwn-eraise-shovel:latest
+    ports:
+      - ${PORT}:8000
