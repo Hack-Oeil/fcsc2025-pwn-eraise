@@ -15,8 +15,8 @@
         '                                                                                    '                      
 Bienvenue sur le serveur SSH de Cyrhades
 
-Utilisez netcat pour accéder au challenge sur le serveur eraise.cyrhades.fr!
+Utilisez netcat pour accéder au challenge sur le serveur shovel-webapp.cyrhades.fr!
 
-*****:~$ nc eraise.cyrhades.fr 4000
+*****:~$ nc shovel-webapp.cyrhades.fr 4000
 
 Bonne chance !
